@@ -1,0 +1,8 @@
+requests
+python-dotenv
+python-dotenv
+beautifulsoup4
+flask
+google-generativeai
+twilio
+gTTS
