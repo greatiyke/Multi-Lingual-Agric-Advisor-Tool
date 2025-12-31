@@ -1,0 +1,18 @@
+# Environment Variables (CRITICAL: Do not commit keys)
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+
+# IDE/Editor
+.vscode/
+.idea/
+
+# Audio Files (Generated)
+static/audio/*.mp3
+# Keep the directory but ignore content
+!static/audio/.gitkeep
