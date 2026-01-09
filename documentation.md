@@ -15,7 +15,7 @@ The system follows a **Multi-Agent Architecture** where specialized agents handl
 *   **Language**: Python 3.9+
 *   **Web Framework**: Flask
 *   **AI/LLM**: Google Gemini (`gemini-flash-latest`)
-*   **Voice/TTS**: Google Text-to-Speech (`gTTS`)
+*   **Voice/TTS**: Microsoft Edge TTS (`edge-tts`)
 *   **External APIs**:
     *   **Weather**: OpenWeatherMap API
     *   **Market Data**: Web Scraping (`BeautifulSoup`) of *Selina Wamucii* market data.
@@ -30,7 +30,7 @@ This layer handles direct interactions with external tools.
 *   **`MarketService`**: Scrapes live crop prices from online sources. Includes fallback to mock data.
 *   **`LLMService`**: Interaction with Google Gemini API to generate and translate advice.
 *   **`MessagingService`**: Wraps the Twilio Client to send SMS messages.
-*   **`TTSService`**: [NEW] uses `gTTS` to convert the generated advice text into an MP3 audio file saved in `static/audio`.
+*   **`TTSService`**: [NEW] Uses `edge-tts` to convert advice text to MP3. Implements **Subprocess Isolation** to prevent Windows event loop conflicts.
 
 ### 4.2. Agents Layer (`/agents`)
 This layer abstracts the business logic.
@@ -46,7 +46,7 @@ This layer abstracts the business logic.
 1.  **User Input**: Location: "Lagos", Crop: "Maize", Language: "Yoruba".
 2.  **Context**: System fetches "Rainy, 28°C" (Weather) and "₦650/kg" (Market).
 3.  **Advice Generation**: Gemini returns translated advice: *"E gbin agbado ni kiakia..."*.
-4.  **Audio Generation**: `TTSService` converts the Yoruba text to an MP3 file.
+4.  **Audio Generation**: `TTSService` invokes `tts_worker.py` (via subprocess) to generate the MP3 using proper Nigerian accents.
 5.  **Delivery**: 
     *   **Web**: Displays text and an HTML5 Audio Player.
     *   **SMS**: Sends text + "Listen here: http://.../audio.mp3".
