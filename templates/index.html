@@ -4,104 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agric Advisor AI</title>
+    <title>Agric Advisor Global | Premium Intelligence</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f0f8ff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .container {
-            max-width: 600px;
-            margin-top: 50px;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #2e8b57;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .btn-primary {
-            background-color: #2e8b57;
-            border-color: #2e8b57;
-            width: 100%;
-            padding: 10px;
-            font-size: 1.1em;
-        }
-
-        .btn-primary:hover {
-            background-color: #236b43;
-        }
-
-        .result-box {
-            margin-top: 20px;
-            padding: 15px;
-            border-left: 5px solid #2e8b57;
-            background-color: #e8f5e9;
-            display: none;
-        }
-
-        .loading {
-            text-align: center;
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 </head>
 
 <body>
 
-    <div class="container">
-        <h1>🌱 Agric Advisor AI</h1>
+    <div class="glass-card">
+        <h1>🌍 Agric Advisor Global</h1>
+        <p class="subtitle">Premium Agronomic Intelligence for a Sustainable Future</p>
+
         <form id="advisorForm">
-            <div class="mb-3">
-                <label for="location" class="form-label">Location</label>
-                <input type="text" class="form-control" id="location" name="location" placeholder="e.g. Lagos, Abuja"
-                    required>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label for="location" class="form-label">Global Location</label>
+                    <input type="text" class="form-control" id="location" name="location"
+                        placeholder="e.g. London, New York, Lagos" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="crop" class="form-label">Crop Type</label>
+                    <input type="text" class="form-control" id="crop" name="crop" placeholder="e.g. Wheat, Corn, Soya"
+                        required>
+                </div>
+                <div class="col-md-6">
+                    <label for="language" class="form-label">Localized Language</label>
+                    <select class="form-select" id="language" name="language">
+                        <optgroup label="Global">
+                            <option value="English">English</option>
+                            <option value="Spanish">Español (Spanish)</option>
+                            <option value="French">Français (French)</option>
+                            <option value="German">Deutsch (German)</option>
+                            <option value="Portuguese">Português (Portuguese)</option>
+                            <option value="Italian">Italiano (Italian)</option>
+                        </optgroup>
+                        <optgroup label="Regional (West Africa)">
+                            <option value="Yoruba">Yoruba</option>
+                            <option value="Hausa">Hausa</option>
+                            <option value="Igbo">Igbo</option>
+                            <option value="Pidgin">Pidgin</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="phone" class="form-label">SMS Alert (Optional)</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="+1, +44, +234...">
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="crop" class="form-label">Crop</label>
-                <input type="text" class="form-control" id="crop" name="crop" placeholder="e.g. Maize, Rice" required>
-            </div>
-            <div class="mb-3">
-                <label for="language" class="form-label">Preferred Language</label>
-                <select class="form-select" id="language" name="language">
-                    <option value="English">English</option>
-                    <option value="Yoruba">Yoruba</option>
-                    <option value="Hausa">Hausa</option>
-                    <option value="Igbo">Igbo</option>
-                    <option value="Pidgin">Pidgin</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="phone" class="form-label">Phone Number (Optional)</label>
-                <input type="tel" class="form-control" id="phone" name="phone" placeholder="+234...">
-                <div class="form-text">Enter number to receive advice via SMS.</div>
-            </div>
-            <button type="submit" class="btn btn-primary">Get Advice</button>
+            <button type="submit" class="btn-premium mt-4">Generate Global Insight</button>
         </form>
 
-        <div class="loading mt-3">
-            <div class="spinner-border text-success" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-            <p>Consulting agents...</p>
+        <!-- Loader -->
+        <div class="loader-container">
+            <div class="spinner"></div>
+            <p class="mt-3">Analyzing Global Markets & Climate Data...</p>
         </div>
 
-        <div id="result" class="result-box">
-            <h4>Advisor Recommendation:</h4>
-            <p id="adviceText"></p>
-            <div id="audioContainer" class="mt-3" style="display:none;">
-                <h6>Listen to Advice:</h6>
-                <audio id="adviceAudio" controls style="width: 100%;"></audio>
+        <!-- Results -->
+        <div id="result" class="result-section">
+            <div class="advice-header">
+                ✨ Strategic Advisor Recommendation
             </div>
-            <small id="smsStatus" class="text-muted"></small>
+
+            <div class="advice-card">
+                <p id="adviceText" style="line-height: 1.6;"></p>
+                <div id="audioContainer" style="display:none;">
+                    <p class="mt-3 mb-1" style="font-size: 0.8rem; opacity: 0.7;">Vocalized Advice:</p>
+                    <audio id="adviceAudio" controls></audio>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-label">Local Market</div>
+                    <div id="marketStat" class="stat-value">---</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Weather</div>
+                    <div id="weatherStat" class="stat-value">---</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-label">Conditions</div>
+                    <div id="conditionStat" class="stat-value">---</div>
+                </div>
+            </div>
+
+            <div class="mt-3 text-center">
+                <small id="smsStatus" class="footer-text" style="color: var(--accent-color);"></small>
+            </div>
         </div>
+
+        <p class="footer-text">Powered by Gemini AI Intelligence • Global Agriculture Index 2026</p>
     </div>
 
     <script>
@@ -109,12 +102,15 @@
             e.preventDefault();
 
             const resultBox = document.getElementById('result');
-            const loading = document.querySelector('.loading');
+            const loader = document.querySelector('.loader-container');
             const adviceText = document.getElementById('adviceText');
             const smsStatus = document.getElementById('smsStatus');
+            const marketStat = document.getElementById('marketStat');
+            const weatherStat = document.getElementById('weatherStat');
+            const conditionStat = document.getElementById('conditionStat');
 
             resultBox.style.display = 'none';
-            loading.style.display = 'block';
+            loader.style.display = 'block';
 
             const formData = new FormData(this);
 
@@ -126,15 +122,20 @@
 
                 const data = await response.json();
 
-                loading.style.display = 'none';
+                loader.style.display = 'none';
                 resultBox.style.display = 'block';
 
                 if (data.error) {
-                    adviceText.innerText = "Error: " + data.error;
-                    adviceText.style.color = "red";
+                    adviceText.innerHTML = `<span style="color: #ff6b6b">Logic Error: ${data.error}</span>`;
                 } else {
                     adviceText.innerText = data.advice;
-                    adviceText.style.color = "#333";
+
+                    // Populate Stats
+                    if (data.data) {
+                        marketStat.innerText = data.data.market.current_price || "N/A";
+                        weatherStat.innerText = data.data.weather.temperature + "°C";
+                        conditionStat.innerText = data.data.weather.condition;
+                    }
 
                     const audioContainer = document.getElementById('audioContainer');
                     const adviceAudio = document.getElementById('adviceAudio');
@@ -147,20 +148,18 @@
                     }
 
                     if (data.sms_status) {
-                        smsStatus.innerText = "SMS Status: " + data.sms_status;
+                        smsStatus.innerText = "✓ Alert Sent: " + data.sms_status;
                     } else {
                         smsStatus.innerText = "";
                     }
                 }
             } catch (error) {
-                loading.style.display = 'none';
+                loader.style.display = 'none';
                 resultBox.style.display = 'block';
                 adviceText.innerText = "An error occurred: " + error.message;
-                console.error("Full error:", error);
             }
         });
     </script>
-
 </body>
 
 </html>

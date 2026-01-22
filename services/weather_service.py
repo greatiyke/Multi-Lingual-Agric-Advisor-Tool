@@ -30,5 +30,11 @@ class WeatherService:
                 "forecast": "Check local forecast for details." # Current weather API doesn't give forecast without another call
             }
         except Exception as e:
-            print(f"[WeatherService] Error fetching weather: {e}")
-            return {"error": str(e)}
+            print(f"[WeatherService] Error fetching weather for {location}: {e}")
+            return {
+                "location": location,
+                "temperature": "N/A",
+                "condition": "unavailable",
+                "humidity": "N/A",
+                "forecast": "Service temporarily unavailable."
+            }

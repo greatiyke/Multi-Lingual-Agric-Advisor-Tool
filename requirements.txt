@@ -5,4 +5,4 @@ beautifulsoup4
 flask
 google-generativeai
 twilio
-edge-tts
+gTTS

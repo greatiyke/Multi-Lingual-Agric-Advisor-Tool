@@ -1,31 +1,30 @@
-# 🌱 Agric Advisor AI
+# 🌍 Agric Advisor Global - Premium Intelligence
 
-**Empowering Farmers, One SMS at a Time.**
+**Empowering Global Agriculture with High-Fidelity AI Intelligence.**
 
-Agric Advisor AI is a localized, multi-agent system designed to provide personalized agronomic advice to rural farmers in Nigeria. By bridging the gap between complex data and accessible technology, it delivers real-time, actionable insights via **Web, SMS, and Voice** in local indigenous languages.
+Agric Advisor Global is a world-class, multi-agent platform designed to provide strategic agronomic advice to farmers across **Europe, North America, and West Africa**. Built for a premium hackathon experience, it combines real-time climate signatures, global commodity market indices, and multi-lingual vocal guidance within a stunning **Glassmorphism** interface.
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![Flask](https://img.shields.io/badge/Flask-2.0%2B-green)
-![Twilio](https://img.shields.io/badge/Twilio-SMS-red)
-![Gemini](https://img.shields.io/badge/AI-Google%20Gemini-orange)
+![Intelligence](https://img.shields.io/badge/AI-Google%20Gemini-orange)
+![Design](https://img.shields.io/badge/Design-Glassmorphism-9cf)
 
-## 🚀 Features
+## 💎 Features
 
-*   **🌍 Multi-Lingual Support**: Generates advice in **English, Yoruba, Hausa, Igbo, and Pidgin**.
-*   **🤖 Multi-Agent Architecture**:
-    *   **Data Agent**: Fetches real-time weather (OpenWeatherMap) and market prices (Web Scraper).
-    *   **Knowledge Agent**: Uses **Google Gemini** to synthesize data into expert agronomic advice.
-    *   **Report Agent**: Delivers advice via SMS.
-*   **🗣️ Voice Feature**: text-to-Speech (TTS) integration for illiterate farmers.
-*   **📱 SMS Integration**: Sends advice directly to feature phones using Twilio.
-*   **🇳🇬 Localized**: automatically formats Nigerian phone numbers and scrapes local market exchanges.
+*   **🏆 Premium Glassmorphic UI**: A high-end technical aesthetic featuring semi-transparent panels, background blur, and smooth transitions.
+*   **🌍 Multi-Regional Intelligence**:
+    *   **Data Agent**: Aggregates real-time climate data (OpenWeather) and commodity prices from global indices (**USA, UK, France, Germany, Canada, Nigeria**).
+    *   **Knowledge Agent**: Leverages **Google Gemini** to synthesize actionable, localized strategic wisdom.
+*   **🗣️ Global Vocalization**: Multi-lingual vocal guidance in **English, Spanish, French, German, Portuguese, Italian, Yoruba, Hausa, and Igbo** via `gTTS`.
+*   **📱 Strategic Alerts**: Dispatches localized insights and voice-links to mobile devices globally.
+*   **📐 Specialized Normalization**: Smart detection of international country codes for localized service delivery.
 
 ## 🛠️ Installation
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/agric-advisor.git
-    cd agric-advisor
+    git clone https://github.com/greatiyke/Multi-Lingual-Agric-Advisor-Tool.git
+    cd Multi-Lingual-Agric-Advisor-Tool
     ```
 
 2.  **Install Dependencies**:
@@ -34,7 +33,7 @@ Agric Advisor AI is a localized, multi-agent system designed to provide personal
     ```
 
 3.  **Environment Setup**:
-    Create a `.env` file in the root directory and add your API keys:
+    Create a `.env` file in the root directory:
     ```env
     OPENWEATHER_API_KEY=your_key_here
     GEMINI_API_KEY=your_key_here
@@ -45,20 +44,18 @@ Agric Advisor AI is a localized, multi-agent system designed to provide personal
 
 ## 🏃‍♂️ Usage
 
-1.  **Run the Application**:
+1.  **Run the Server**:
     ```bash
     python app.py
     ```
 
-2.  **Access the Web Interface**:
-    Open your browser and navigate to `http://127.0.0.1:5000`.
+2.  **Access the Dashboard**:
+    Open [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
-3.  **Get Advice**:
-    *   Enter your Location (e.g., "Lagos").
-    *   Enter your Crop (e.g., "Maize").
-    *   Select your Language.
-    *   (Optional) Enter your phone number for SMS.
-    *   Click **Get Advice** to see and hear the recommendation!
+3.  **Generate Insights**:
+    *   Enter a **Global Location** (e.g., "Paris", "New York", "Lagos").
+    *   Select your **Crop** and **Localized Language**.
+    *   Click **Generate Global Insight** to witness the premium intelligence synthesis.
 
 ## 🤝 Contributing
 
